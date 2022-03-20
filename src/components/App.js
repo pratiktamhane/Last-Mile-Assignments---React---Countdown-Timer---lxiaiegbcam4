@@ -5,11 +5,13 @@ const App = () => {
   // write your code here
   const [input, setinputt] = useState();
 
-  setInterval(() => {
-    if (input > 0) {
-      setinputt(parseInt(input) - 1);
-    }
-  }, 1000);
+  useEffect(() => {
+    setInterval(() => {
+      if (input > 0) {
+        setinputt(parseInt(input) - 1);
+      }
+    }, 1000);
+  });
 
   return (
     <div className="wrapper">
@@ -19,7 +21,7 @@ const App = () => {
           <input
             id="timeCount"
             onKeyDown={(e) => {
-              if (e.keyCode == 13) {
+              if (e.keyCode === 13) {
                 setinputt(e.target.value);
               }
             }}
